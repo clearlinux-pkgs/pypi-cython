@@ -1,0 +1,1 @@
+python runtests.py %{?_smp_mflags} --no-doctest --no-examples --no-code-style -vv -3 || :
