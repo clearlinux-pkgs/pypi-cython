@@ -18,10 +18,10 @@ BuildRequires : buildreq-distutils3
 Provides: Cython
 Provides: Cython-python
 Provides: Cython-python3
-BuildRequires : coverage
+BuildRequires : pypi(coverage)
 BuildRequires : gdb
-BuildRequires : ipython
-BuildRequires : numpy
+BuildRequires : pypi(ipython)
+BuildRequires : pypi(numpy)
 BuildRequires : python3-dev
 
 %description
