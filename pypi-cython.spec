@@ -20,6 +20,7 @@ BuildRequires : pypi(coverage)
 BuildRequires : pypi(ipython)
 BuildRequires : pypi(numpy)
 BuildRequires : python3-dev
+Provides: Cython
 
 %description
 Welcome to Cython's documentation.
