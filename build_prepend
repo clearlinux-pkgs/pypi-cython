@@ -1,0 +1,1 @@
+export LD_FLAGS="$LD_FLAGS -lgfortran"

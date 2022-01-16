@@ -4,7 +4,7 @@
 #
 Name     : pypi-cython
 Version  : 0.29.26
-Release  : 123
+Release  : 124
 URL      : https://files.pythonhosted.org/packages/bc/fa/8604d92ef753e0036d807f1b3179813ab2fa283e3b19c926e11673c8205b/Cython-0.29.26.tar.gz
 Source0  : https://files.pythonhosted.org/packages/bc/fa/8604d92ef753e0036d807f1b3179813ab2fa283e3b19c926e11673c8205b/Cython-0.29.26.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
@@ -15,11 +15,8 @@ Requires: pypi-cython-license = %{version}-%{release}
 Requires: pypi-cython-python = %{version}-%{release}
 Requires: pypi-cython-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-Provides: Cython
-Provides: Cython-python
-Provides: Cython-python3
-BuildRequires : pypi(coverage)
 BuildRequires : gdb
+BuildRequires : pypi(coverage)
 BuildRequires : pypi(ipython)
 BuildRequires : pypi(numpy)
 BuildRequires : python3-dev
@@ -69,11 +66,14 @@ python3 components for the pypi-cython package.
 cd %{_builddir}/Cython-0.29.26
 
 %build
+## build_prepend content
+export LD_FLAGS="$LD_FLAGS -lgfortran"
+## build_prepend end
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641428668
+export SOURCE_DATE_EPOCH=1642357250
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -85,11 +85,6 @@ export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build  %{?_smp_mflags}
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-python runtests.py %{?_smp_mflags} --no-doctest --no-examples --no-code-style -vv -3 || :
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
