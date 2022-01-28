@@ -1,3 +1,18 @@
 # This file contains recursive sources that require this package
+PyYAML
+ceph
+inkscape
+libseccomp
+nghttp2
+numpy-stl
 pandas
+pypi-gevent
+pypi-grpcio
+pypi-numpy
+pypi-pywavelets
+pypi-pyzmq
 pypi-scikit_image
+rdma-core
+recode
+scikit-learn
+scipy
