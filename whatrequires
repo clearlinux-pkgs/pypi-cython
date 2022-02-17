@@ -6,6 +6,7 @@ libseccomp
 nghttp2
 numpy-stl
 pandas
+pmix
 pypi-gevent
 pypi-grpcio
 pypi-numpy
