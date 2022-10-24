@@ -4,7 +4,7 @@
 #
 Name     : pypi-cython
 Version  : 0.29.32
-Release  : 139
+Release  : 140
 URL      : https://files.pythonhosted.org/packages/4c/76/1e41fbb365ad20b6efab2e61b0f4751518444c953b390f9b2d36cf97eea0/Cython-0.29.32.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4c/76/1e41fbb365ad20b6efab2e61b0f4751518444c953b390f9b2d36cf97eea0/Cython-0.29.32.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
