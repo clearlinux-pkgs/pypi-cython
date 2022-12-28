@@ -4,7 +4,7 @@
 #
 Name     : pypi-cython
 Version  : 0.29.32
-Release  : 141
+Release  : 142
 URL      : https://files.pythonhosted.org/packages/4c/76/1e41fbb365ad20b6efab2e61b0f4751518444c953b390f9b2d36cf97eea0/Cython-0.29.32.tar.gz
 Source0  : https://files.pythonhosted.org/packages/4c/76/1e41fbb365ad20b6efab2e61b0f4751518444c953b390f9b2d36cf97eea0/Cython-0.29.32.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
@@ -22,6 +22,9 @@ BuildRequires : pypi(coverage)
 BuildRequires : pypi(ipython)
 BuildRequires : pypi(numpy)
 BuildRequires : python3-dev
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 Welcome to Cython's documentation.
@@ -98,19 +101,22 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659106634
+export SOURCE_DATE_EPOCH=1672266495
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build  %{?_smp_mflags}
 
 pushd ../buildavx2/
+## build_prepend content
+export LD_FLAGS="$LD_FLAGS -lgfortran"
+## build_prepend end
 export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
@@ -123,8 +129,8 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-cython
-cp %{_builddir}/Cython-%{version}/COPYING.txt %{buildroot}/usr/share/package-licenses/pypi-cython/38099d4531dd3d32b72df546041f15201123547f
-cp %{_builddir}/Cython-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-cython/a6a5418b4d67d9f3a33cbf184b25ac7f9fa87d33
+cp %{_builddir}/Cython-%{version}/COPYING.txt %{buildroot}/usr/share/package-licenses/pypi-cython/38099d4531dd3d32b72df546041f15201123547f || :
+cp %{_builddir}/Cython-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-cython/a6a5418b4d67d9f3a33cbf184b25ac7f9fa87d33 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :

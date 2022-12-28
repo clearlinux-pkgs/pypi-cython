@@ -1,8 +1,10 @@
 # This file contains recursive sources that require this package
 PyYAML
+borgbackup
 ceph
 inkscape
 libseccomp
+mpi4py
 nghttp2
 numpy-stl
 pandas
@@ -15,5 +17,4 @@ pypi-pyzmq
 pypi-scikit_image
 rdma-core
 recode
-scikit-learn
 scipy
