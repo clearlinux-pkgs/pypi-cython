@@ -5,15 +5,13 @@
 #
 Name     : pypi-cython
 Version  : 0.29.34
-Release  : 145
+Release  : 146
 URL      : https://files.pythonhosted.org/packages/0a/70/1500f05bddb16d795b29fac42954b3c8764c82367b8326c10f038471ae7f/Cython-0.29.34.tar.gz
 Source0  : https://files.pythonhosted.org/packages/0a/70/1500f05bddb16d795b29fac42954b3c8764c82367b8326c10f038471ae7f/Cython-0.29.34.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
 Requires: pypi-cython-bin = %{version}-%{release}
-Requires: pypi-cython-filemap = %{version}-%{release}
-Requires: pypi-cython-lib = %{version}-%{release}
 Requires: pypi-cython-license = %{version}-%{release}
 Requires: pypi-cython-python = %{version}-%{release}
 Requires: pypi-cython-python3 = %{version}-%{release}
@@ -35,28 +33,9 @@ To build the documentation on Linux, you need Make and Sphinx installed on your 
 Summary: bin components for the pypi-cython package.
 Group: Binaries
 Requires: pypi-cython-license = %{version}-%{release}
-Requires: pypi-cython-filemap = %{version}-%{release}
 
 %description bin
 bin components for the pypi-cython package.
-
-
-%package filemap
-Summary: filemap components for the pypi-cython package.
-Group: Default
-
-%description filemap
-filemap components for the pypi-cython package.
-
-
-%package lib
-Summary: lib components for the pypi-cython package.
-Group: Libraries
-Requires: pypi-cython-license = %{version}-%{release}
-Requires: pypi-cython-filemap = %{version}-%{release}
-
-%description lib
-lib components for the pypi-cython package.
 
 
 %package license
@@ -79,7 +58,6 @@ python components for the pypi-cython package.
 %package python3
 Summary: python3 components for the pypi-cython package.
 Group: Default
-Requires: pypi-cython-filemap = %{version}-%{release}
 Requires: python3-core
 Provides: pypi(cython)
 
@@ -102,15 +80,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680551012
+export SOURCE_DATE_EPOCH=1683036820
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build  %{?_smp_mflags}
 
@@ -155,14 +133,6 @@ popd
 /usr/bin/cython
 /usr/bin/cythonize
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-pypi-cython
-
-%files lib
-%defattr(-,root,root,-)
-/usr/share/clear/optimized-elf/other*
-
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/pypi-cython/38099d4531dd3d32b72df546041f15201123547f
@@ -173,4 +143,5 @@ popd
 
 %files python3
 %defattr(-,root,root,-)
+/V3/usr/lib/python3*/*
 /usr/lib/python3*/*
