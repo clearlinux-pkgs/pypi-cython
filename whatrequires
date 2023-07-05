@@ -1,7 +1,6 @@
 # This file contains recursive sources that require this package
 PyYAML
 borgbackup
-ceph
 inkscape
 libseccomp
 mpi4py

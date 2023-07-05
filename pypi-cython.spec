@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-cython
-Version  : 0.29.35
-Release  : 148
-URL      : https://files.pythonhosted.org/packages/da/a0/298340fb8412574a0b00a0d9856aa27e7038da429b9e31d6825173d1e6bd/Cython-0.29.35.tar.gz
-Source0  : https://files.pythonhosted.org/packages/da/a0/298340fb8412574a0b00a0d9856aa27e7038da429b9e31d6825173d1e6bd/Cython-0.29.35.tar.gz
+Version  : 0.29.36
+Release  : 149
+URL      : https://files.pythonhosted.org/packages/38/db/df0e99d6c5fe19ee5c981d22aad557be4bdeed3ecfae25d47b84b07f0f98/Cython-0.29.36.tar.gz
+Source0  : https://files.pythonhosted.org/packages/38/db/df0e99d6c5fe19ee5c981d22aad557be4bdeed3ecfae25d47b84b07f0f98/Cython-0.29.36.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
@@ -66,10 +66,10 @@ python3 components for the pypi-cython package.
 
 
 %prep
-%setup -q -n Cython-0.29.35
-cd %{_builddir}/Cython-0.29.35
+%setup -q -n Cython-0.29.36
+cd %{_builddir}/Cython-0.29.36
 pushd ..
-cp -a Cython-0.29.35 buildavx2
+cp -a Cython-0.29.36 buildavx2
 popd
 
 %build
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685560760
+export SOURCE_DATE_EPOCH=1688571200
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
