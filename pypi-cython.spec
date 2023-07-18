@@ -4,11 +4,11 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-cython
-Version  : 0.29.36
-Release  : 149
-URL      : https://files.pythonhosted.org/packages/38/db/df0e99d6c5fe19ee5c981d22aad557be4bdeed3ecfae25d47b84b07f0f98/Cython-0.29.36.tar.gz
-Source0  : https://files.pythonhosted.org/packages/38/db/df0e99d6c5fe19ee5c981d22aad557be4bdeed3ecfae25d47b84b07f0f98/Cython-0.29.36.tar.gz
-Summary  : The Cython compiler for writing C extensions for the Python language.
+Version  : 3.0.0
+Release  : 150
+URL      : https://files.pythonhosted.org/packages/7f/a2/fd5ced5dd33597ef291861bfadd46820de417b41bcb6ca2fa0b5f6fa8152/Cython-3.0.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/7f/a2/fd5ced5dd33597ef291861bfadd46820de417b41bcb6ca2fa0b5f6fa8152/Cython-3.0.0.tar.gz
+Summary  : The Cython compiler for writing C extensions in the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
 Requires: pypi-cython-bin = %{version}-%{release}
@@ -26,8 +26,11 @@ BuildRequires : python3-dev
 %define debug_package %{nil}
 
 %description
-Welcome to Cython's documentation.
-To build the documentation on Linux, you need Make and Sphinx installed on your system. Then execute::
+Welcome to Cython!
+==================
+Cython is a Python compiler that makes writing C extensions for
+Python as easy as Python itself.  Cython is based on Pyrex,
+but supports more cutting edge functionality and optimizations.
 
 %package bin
 Summary: bin components for the pypi-cython package.
@@ -66,10 +69,10 @@ python3 components for the pypi-cython package.
 
 
 %prep
-%setup -q -n Cython-0.29.36
-cd %{_builddir}/Cython-0.29.36
+%setup -q -n Cython-3.0.0
+cd %{_builddir}/Cython-3.0.0
 pushd ..
-cp -a Cython-0.29.36 buildavx2
+cp -a Cython-3.0.0 buildavx2
 popd
 
 %build
@@ -80,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688571200
+export SOURCE_DATE_EPOCH=1689693371
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -109,7 +112,6 @@ export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-cython
 cp %{_builddir}/Cython-%{version}/COPYING.txt %{buildroot}/usr/share/package-licenses/pypi-cython/38099d4531dd3d32b72df546041f15201123547f || :
-cp %{_builddir}/Cython-%{version}/LICENSE.txt %{buildroot}/usr/share/package-licenses/pypi-cython/a6a5418b4d67d9f3a33cbf184b25ac7f9fa87d33 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -136,7 +138,6 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/pypi-cython/38099d4531dd3d32b72df546041f15201123547f
-/usr/share/package-licenses/pypi-cython/a6a5418b4d67d9f3a33cbf184b25ac7f9fa87d33
 
 %files python
 %defattr(-,root,root,-)
