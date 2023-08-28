@@ -4,10 +4,10 @@
 # Using build pattern: distutils3
 #
 Name     : pypi-cython
-Version  : 3.0.0
-Release  : 150
-URL      : https://files.pythonhosted.org/packages/7f/a2/fd5ced5dd33597ef291861bfadd46820de417b41bcb6ca2fa0b5f6fa8152/Cython-3.0.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/7f/a2/fd5ced5dd33597ef291861bfadd46820de417b41bcb6ca2fa0b5f6fa8152/Cython-3.0.0.tar.gz
+Version  : 3.0.2
+Release  : 151
+URL      : https://files.pythonhosted.org/packages/2f/81/c9fb4b69823f674e1e2acc484eac93a47a1e3a59d4d051c76259dadd6984/Cython-3.0.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/2f/81/c9fb4b69823f674e1e2acc484eac93a47a1e3a59d4d051c76259dadd6984/Cython-3.0.2.tar.gz
 Summary  : The Cython compiler for writing C extensions in the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
@@ -62,17 +62,16 @@ python components for the pypi-cython package.
 Summary: python3 components for the pypi-cython package.
 Group: Default
 Requires: python3-core
-Provides: pypi(cython)
 
 %description python3
 python3 components for the pypi-cython package.
 
 
 %prep
-%setup -q -n Cython-3.0.0
-cd %{_builddir}/Cython-3.0.0
+%setup -q -n Cython-3.0.2
+cd %{_builddir}/Cython-3.0.2
 pushd ..
-cp -a Cython-3.0.0 buildavx2
+cp -a Cython-3.0.2 buildavx2
 popd
 
 %build
@@ -83,7 +82,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689693371
+export SOURCE_DATE_EPOCH=1693250859
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib

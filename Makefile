@@ -1,5 +1,5 @@
 PKG_NAME := pypi-cython
-URL = https://files.pythonhosted.org/packages/7f/a2/fd5ced5dd33597ef291861bfadd46820de417b41bcb6ca2fa0b5f6fa8152/Cython-3.0.0.tar.gz
+URL = https://files.pythonhosted.org/packages/2f/81/c9fb4b69823f674e1e2acc484eac93a47a1e3a59d4d051c76259dadd6984/Cython-3.0.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
