@@ -5,7 +5,7 @@
 #
 Name     : pypi-cython
 Version  : 3.0.3
-Release  : 153
+Release  : 154
 URL      : https://files.pythonhosted.org/packages/1a/1d/c79482ecb7217fc5840eceb724f7ebb4d3a70c5bf46309add0c0cd299891/Cython-3.0.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1a/1d/c79482ecb7217fc5840eceb724f7ebb4d3a70c5bf46309add0c0cd299891/Cython-3.0.3.tar.gz
 Summary  : The Cython compiler for writing C extensions in the Python language.
@@ -83,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1696543669
+export SOURCE_DATE_EPOCH=1697218189
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
