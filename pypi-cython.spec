@@ -6,10 +6,10 @@
 # autospec commit: c1050fe
 #
 Name     : pypi-cython
-Version  : 3.0.6
-Release  : 163
-URL      : https://files.pythonhosted.org/packages/d3/20/02f4961b4315b95989abfe4b7cedff263cc89693834222d210a7a62a6214/Cython-3.0.6.tar.gz
-Source0  : https://files.pythonhosted.org/packages/d3/20/02f4961b4315b95989abfe4b7cedff263cc89693834222d210a7a62a6214/Cython-3.0.6.tar.gz
+Version  : 3.0.7
+Release  : 164
+URL      : https://files.pythonhosted.org/packages/23/e9/ef8607abfbbbaeb93cb1381c8538a22d38d64524df39759dc2787d4909b0/Cython-3.0.7.tar.gz
+Source0  : https://files.pythonhosted.org/packages/23/e9/ef8607abfbbbaeb93cb1381c8538a22d38d64524df39759dc2787d4909b0/Cython-3.0.7.tar.gz
 Summary  : The Cython compiler for writing C extensions in the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
@@ -71,10 +71,10 @@ python3 components for the pypi-cython package.
 
 
 %prep
-%setup -q -n Cython-3.0.6
-cd %{_builddir}/Cython-3.0.6
+%setup -q -n Cython-3.0.7
+cd %{_builddir}/Cython-3.0.7
 pushd ..
-cp -a Cython-3.0.6 buildavx2
+cp -a Cython-3.0.7 buildavx2
 popd
 
 %build
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1702268676
+export SOURCE_DATE_EPOCH=1703115787
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
