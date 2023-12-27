@@ -7,7 +7,7 @@
 #
 Name     : pypi-cython
 Version  : 3.0.7
-Release  : 164
+Release  : 165
 URL      : https://files.pythonhosted.org/packages/23/e9/ef8607abfbbbaeb93cb1381c8538a22d38d64524df39759dc2787d4909b0/Cython-3.0.7.tar.gz
 Source0  : https://files.pythonhosted.org/packages/23/e9/ef8607abfbbbaeb93cb1381c8538a22d38d64524df39759dc2787d4909b0/Cython-3.0.7.tar.gz
 Summary  : The Cython compiler for writing C extensions in the Python language.
