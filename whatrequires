@@ -2,6 +2,7 @@
 PyYAML
 borgbackup
 inkscape
+libplist
 libseccomp
 mpi4py
 nghttp2
@@ -14,6 +15,7 @@ pypi-numpy
 pypi-pywavelets
 pypi-pyzmq
 pypi-scikit_image
+pypi-scikit_learn
 rdma-core
 recode
 scipy
