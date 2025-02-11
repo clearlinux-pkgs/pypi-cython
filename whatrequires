@@ -9,6 +9,8 @@ nghttp2
 numpy-stl
 pandas
 pmix
+pypi-blosc
+pypi-blosc2
 pypi-gevent
 pypi-grpcio
 pypi-numpy
@@ -16,6 +18,8 @@ pypi-pywavelets
 pypi-pyzmq
 pypi-scikit_image
 pypi-scikit_learn
+pypi-yarl
 rdma-core
 recode
 scipy
+vapoursynth
